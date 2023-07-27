@@ -1,33 +1,20 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    public List<Integer> rightSideView(TreeNode root) {
-        List<Integer> result=new ArrayList<Integer>();
-        rightView(root,result,0);
-        return result;
-    }
-  
-    public void rightView(TreeNode root,List<Integer> result,int currDepth){
-        if(root==null){
+class Solution{
+    
+    void Right(Node node,ArrayList<Integer> arr,int order){
+        if(node==null){
             return;
         }
-        if(currDepth==result.size()){
-            result.add(root.val);
+        if(order==arr.size()){
+            arr.add(node.data);
         }
-        rightView(root.right,result,currDepth+1);
-        rightView(root.left,result,currDepth+1);
+        Right(node.right,arr,order+1);
+        Right(node.left,arr,order+1);    //If not found in right part then come to find node in left part at next level
+    }
+    
+    //Function to return list containing elements of right view of binary tree.
+    ArrayList<Integer> rightView(Node node) {
+        ArrayList<Integer> arr=new ArrayList<Integer>();
+        Right(node,arr,0);
+        return arr;
     }
 }
