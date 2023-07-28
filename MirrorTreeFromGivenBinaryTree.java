@@ -1,5 +1,7 @@
 class Solution {
     // JUST SWAPPING ALL RIGHT TO LEFT OR VICE-VERSA
+
+    //Just Same as INVERT BINARY TREE
     void mirror(Node node) {
         if(node==null){
             return;
