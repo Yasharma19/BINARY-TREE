@@ -1,6 +1,6 @@
 class Tree
 {
-     //We have to check with each that the difference between left and right Node will be not more than one. 
+     //We have to check with each that the difference between heights of left and right Node will be not more than one. 
     int height(Node root){
         if(root==null){
             return 0;
