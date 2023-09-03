@@ -1,20 +1,20 @@
-class Solution{
-    
-    void Right(Node node,ArrayList<Integer> arr,int order){
-        if(node==null){
+class Solution {
+    public void Right(TreeNode root,List<Integer> arr,int order){
+        if(root==null){
             return;
         }
         if(order==arr.size()){
-            arr.add(node.data);
+            arr.add(root.val);
         }
-        Right(node.right,arr,order+1);
-        Right(node.left,arr,order+1);    //If not found in right part then come to find node in left part at next level
+        Right(root.right,arr,order+1);  //Priority to Right
+        Right(root.left,arr,order+1);   //If right Not present then add left;
     }
     
-    //Function to return list containing elements of right view of binary tree.
-    ArrayList<Integer> rightView(Node node) {
-        ArrayList<Integer> arr=new ArrayList<Integer>();
-        Right(node,arr,0);
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> arr=new ArrayList<>();
+        int order=0;
+        Right(root,arr,order);
         return arr;
     }
+    
 }
