@@ -8,7 +8,7 @@ class Tree
         if(order==arr.size()){
             arr.add(root.data);
         }
-        Left(root.left,arr,order+1);
+        Left(root.left,arr,order+1);     //Priority to left as we are doing leftview.
         Left(root.right,arr,order+1);  //if not present in left, then we find in riight part whether there is a node or not on next level.
     }
     
